@@ -5,10 +5,10 @@ use yii\web\AssetBundle;
 
 class FontAwesomeAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/font-awesome';
+    public $sourcePath = '@bower/font-awesome/web-fonts-with-css';
 
     public $css = [
-        'css/font-awesome.min.css'
+        'css/fontawesome-all.min.css'
     ];
 
     public function init()
@@ -18,7 +18,7 @@ class FontAwesomeAsset extends AssetBundle
         $this->publishOptions['beforeCopy'] = function ($from, $to) {
             if (is_dir($from)) {
                 $dirname = basename($from);
-                return $dirname === 'fonts' || $dirname === 'css';
+                return $dirname === 'webfonts' || $dirname === 'css';
             } else {
                 $ext = pathinfo($from, PATHINFO_EXTENSION);
                 switch ($ext) {
