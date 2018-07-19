@@ -1,9 +1,11 @@
 <?php
 namespace onix\assets;
 
-use yii\web\AssetBundle;
+use yii\web\AssetBundle as YiiAssetBundle;
 
-class FontAwesomeAsset extends AssetBundle
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+
+class FontAwesomeAsset extends YiiAssetBundle
 {
     public $sourcePath = '@bower/font-awesome/web-fonts-with-css';
 
@@ -23,8 +25,9 @@ class FontAwesomeAsset extends AssetBundle
                 $ext = pathinfo($from, PATHINFO_EXTENSION);
                 switch ($ext) {
                     case 'scss':
-                    case 'map':
                         return false;
+                    case 'map':
+                        return YII_DEBUG;
                     default:
                         return true;
                 }
