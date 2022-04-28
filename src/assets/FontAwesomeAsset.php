@@ -7,10 +7,10 @@ defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 class FontAwesomeAsset extends YiiAssetBundle
 {
-    public $sourcePath = '@bower/font-awesome/web-fonts-with-css';
+    public $sourcePath = '@bower/font-awesome';
 
     public $css = [
-        'css/fontawesome-all.min.css'
+        'css/all.min.css'
     ];
 
     public function init()
@@ -24,6 +24,7 @@ class FontAwesomeAsset extends YiiAssetBundle
             } else {
                 $ext = pathinfo($from, PATHINFO_EXTENSION);
                 switch ($ext) {
+                    case 'less':
                     case 'scss':
                         return false;
                     case 'map':
